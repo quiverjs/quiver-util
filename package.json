@@ -5,11 +5,17 @@
     "url": "http://soareschen.com"
   },
   "name": "quiver-object",
-  "desription": "Utility library for common object creation patterns",
-  "version": "0.0.1",
+  "desription": "Utility library for common object operations",
+  "version": "1.0.0",
   "homepage": "https://github.com/quiverjs/object",
   "repository": {
     "url": "git@github.com:quiverjs/object.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.1",
+    "mocha": "^1.20.1",
+    "should": "^4.0.4",
+    "gulp-traceur": "^0.7.0"
   },
   "bugs": {
     "url": "https://github.com/quiverjs/object/issues",
