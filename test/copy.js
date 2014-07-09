@@ -29,21 +29,9 @@ describe('no copy test', () => {
     should.equal(obj.foo, 'foo')
   })
 
-  it('enumerable should copy', () => {
-    var obj = { foo: 'foo' }
-    obj.__noCopy = true
-
-    var copied = copy(obj)
-    copied.foo = 'bar'
-
-    should.notEqual(obj.foo, 'bar')
-  })
-
-  it('non-enumerable should not copy', () => {
+  it('should not copy', () => {
     var obj = { foo: 'foo' }
     noCopy(obj)
-
-    should.equal(obj.__noCopy, true)
 
     var copied = copy(obj)
     copied.foo = 'bar'

@@ -22,17 +22,9 @@ describe('no copy test', (function() {
     copied.foo = 'bar';
     should.equal(obj.foo, 'foo');
   }));
-  it('enumerable should copy', (function() {
-    var obj = {foo: 'foo'};
-    obj.__noCopy = true;
-    var copied = copy(obj);
-    copied.foo = 'bar';
-    should.notEqual(obj.foo, 'bar');
-  }));
-  it('non-enumerable should not copy', (function() {
+  it('should not copy', (function() {
     var obj = {foo: 'foo'};
     noCopy(obj);
-    should.equal(obj.__noCopy, true);
     var copied = copy(obj);
     copied.foo = 'bar';
     should.equal(obj.foo, 'bar');

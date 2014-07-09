@@ -9,8 +9,9 @@ Object.defineProperties(exports, {
   __esModule: {value: true}
 });
 var defaultProto = Object.getPrototypeOf({});
+var noCopyKey = Symbol('noCopy');
 var shouldNotCopy = (function(object) {
-  return object.__noCopy && !Object.prototype.propertyIsEnumerable.call(object, '__noCopy');
+  return object[noCopyKey] == true;
 });
 var copy = (function(object) {
   var $__1;
@@ -64,10 +65,11 @@ var copyArray = (function(array) {
 });
 var noCopy = (function(obj) {
   if (!obj)
-    return;
-  Object.defineProperty(obj, '__noCopy', {
+    return obj;
+  Object.defineProperty(obj, noCopyKey, {
     enumerable: false,
     writable: true,
     value: true
   });
+  return obj;
 });
