@@ -5,7 +5,8 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var copy = $traceurRuntime.assertObject(require('./copy.js')).copy;
+var $__copy_46_js__;
+var copy = ($__copy_46_js__ = require("./copy.js"), $__copy_46_js__ && $__copy_46_js__.__esModule && $__copy_46_js__ || {default: $__copy_46_js__}).copy;
 var noCopy = (function(object) {
   return object;
 });

@@ -1,6 +1,8 @@
 "use strict";
-require('traceur');
-var merge = $traceurRuntime.assertObject(require('../lib/merge.js')).merge;
+var $__traceur_64_0_46_0_46_58__,
+    $___46__46__47_lib_47_merge_46_js__;
+($__traceur_64_0_46_0_46_58__ = require("traceur"), $__traceur_64_0_46_0_46_58__ && $__traceur_64_0_46_0_46_58__.__esModule && $__traceur_64_0_46_0_46_58__ || {default: $__traceur_64_0_46_0_46_58__});
+var merge = ($___46__46__47_lib_47_merge_46_js__ = require("../lib/merge.js"), $___46__46__47_lib_47_merge_46_js__ && $___46__46__47_lib_47_merge_46_js__.__esModule && $___46__46__47_lib_47_merge_46_js__ || {default: $___46__46__47_lib_47_merge_46_js__}).merge;
 var should = require('should');
 var object1 = {
   'foo': 'foo value',

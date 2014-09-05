@@ -16,7 +16,7 @@ var shouldNotCopy = (function(object) {
 var copy = (function(object) {
   var $__1;
   var options = arguments[1] !== (void 0) ? arguments[1] : {};
-  var $__0 = $traceurRuntime.assertObject(options),
+  var $__0 = options,
       forceCopy = ($__1 = $__0.forceCopy) === void 0 ? false : $__1,
       excludeFields = $__0.excludeFields;
   if ((object == null) || (typeof(object) != 'object')) {
