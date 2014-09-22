@@ -6,23 +6,21 @@
   },
   "name": "quiver-object",
   "desription": "Utility library for common object operations",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage": "https://github.com/quiverjs/object",
   "repository": {
     "url": "git@github.com:quiverjs/object.git"
   },
   "dependencies": {
-    "traceur": "~0.0.60"
+    "traceur": "~0.0.65"
   },
   "devDependencies": {
-    "gulp": "^3.8.7",
     "mocha": "^1.21.4",
-    "should": "^4.0.4",
-    "gulp-traceur": "^0.13.0"
+    "should": "^4.0.4"
   },
   "bugs": {
     "url": "https://github.com/quiverjs/object/issues",
-    "email": "soares.chen@gmail.com"
+    "email": "quiver@quiverjs.org"
   },
   "licenses": {
     "type": "MIT",

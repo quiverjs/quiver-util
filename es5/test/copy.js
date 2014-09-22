@@ -1,7 +1,7 @@
 "use strict";
-var $__traceur_64_0_46_0_46_58__,
+var $__traceur_64_0_46_0_46_6__,
     $___46__46__47_lib_47_copy_46_js__;
-($__traceur_64_0_46_0_46_58__ = require("traceur"), $__traceur_64_0_46_0_46_58__ && $__traceur_64_0_46_0_46_58__.__esModule && $__traceur_64_0_46_0_46_58__ || {default: $__traceur_64_0_46_0_46_58__});
+($__traceur_64_0_46_0_46_6__ = require("traceur"), $__traceur_64_0_46_0_46_6__ && $__traceur_64_0_46_0_46_6__.__esModule && $__traceur_64_0_46_0_46_6__ || {default: $__traceur_64_0_46_0_46_6__});
 var $__0 = ($___46__46__47_lib_47_copy_46_js__ = require("../lib/copy.js"), $___46__46__47_lib_47_copy_46_js__ && $___46__46__47_lib_47_copy_46_js__.__esModule && $___46__46__47_lib_47_copy_46_js__ || {default: $___46__46__47_lib_47_copy_46_js__}),
     copy = $__0.copy,
     noCopy = $__0.noCopy;
