@@ -1,7 +1,8 @@
 import 'traceur'
 import { merge } from '../lib/merge.js'
 
-var should = require('should')
+import chai from 'chai'
+var should = chai.should()
 
 var object1 = {
   'foo': 'foo value',

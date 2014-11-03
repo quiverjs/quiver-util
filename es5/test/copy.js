@@ -1,20 +1,22 @@
 "use strict";
-var $__traceur_64_0_46_0_46_6__,
-    $___46__46__47_lib_47_copy_46_js__;
-($__traceur_64_0_46_0_46_6__ = require("traceur"), $__traceur_64_0_46_0_46_6__ && $__traceur_64_0_46_0_46_6__.__esModule && $__traceur_64_0_46_0_46_6__ || {default: $__traceur_64_0_46_0_46_6__});
-var $__0 = ($___46__46__47_lib_47_copy_46_js__ = require("../lib/copy.js"), $___46__46__47_lib_47_copy_46_js__ && $___46__46__47_lib_47_copy_46_js__.__esModule && $___46__46__47_lib_47_copy_46_js__ || {default: $___46__46__47_lib_47_copy_46_js__}),
+var $__traceur_64_0_46_0_46_7__,
+    $___46__46__47_lib_47_copy__,
+    $__chai__;
+($__traceur_64_0_46_0_46_7__ = require("traceur"), $__traceur_64_0_46_0_46_7__ && $__traceur_64_0_46_0_46_7__.__esModule && $__traceur_64_0_46_0_46_7__ || {default: $__traceur_64_0_46_0_46_7__});
+var $__0 = ($___46__46__47_lib_47_copy__ = require("../lib/copy"), $___46__46__47_lib_47_copy__ && $___46__46__47_lib_47_copy__.__esModule && $___46__46__47_lib_47_copy__ || {default: $___46__46__47_lib_47_copy__}),
     copy = $__0.copy,
     noCopy = $__0.noCopy;
-var should = require('should');
+var chai = ($__chai__ = require("chai"), $__chai__ && $__chai__.__esModule && $__chai__ || {default: $__chai__}).default;
+var should = chai.should();
 describe('exclude copy test', (function() {
-  it('should not copy excluded fieldds', (function() {
+  it('should not copy excluded fields', (function() {
     var obj = {
       foo: 'foo value',
       bar: 'bar value'
     };
     var copied = copy(obj, {excludeFields: ['bar']});
     should.equal(copied.foo, 'foo value');
-    should.not.exists(copied.bar);
+    should.not.exist(copied.bar);
   }));
 }));
 describe('no copy test', (function() {
@@ -58,7 +60,7 @@ describe('null proto test', (function() {
     should.exist(obj.toString);
     var copied = copy(obj);
     var copyProto = Object.getPrototypeOf(copied);
-    should.notEqual(originalProto, copyProto);
+    should.not.equal(originalProto, copyProto);
     should.equal(copyProto, null);
     should.not.exist(copied.toString);
   }));

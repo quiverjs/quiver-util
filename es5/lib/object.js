@@ -32,18 +32,18 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__merge_46_js__,
-    $__copy_46_js__,
-    $__getter_46_js__,
-    $__owner_46_js__,
-    $__assert_46_js__;
-var merge = ($__merge_46_js__ = require("./merge.js"), $__merge_46_js__ && $__merge_46_js__.__esModule && $__merge_46_js__ || {default: $__merge_46_js__}).merge;
-var $__1 = ($__copy_46_js__ = require("./copy.js"), $__copy_46_js__ && $__copy_46_js__.__esModule && $__copy_46_js__ || {default: $__copy_46_js__}),
+var $__merge__,
+    $__copy__,
+    $__getter__,
+    $__owner__,
+    $__assert__;
+var merge = ($__merge__ = require("./merge"), $__merge__ && $__merge__.__esModule && $__merge__ || {default: $__merge__}).merge;
+var $__1 = ($__copy__ = require("./copy"), $__copy__ && $__copy__.__esModule && $__copy__ || {default: $__copy__}),
     copy = $__1.copy,
     noCopy = $__1.noCopy;
-var defineGetter = ($__getter_46_js__ = require("./getter.js"), $__getter_46_js__ && $__getter_46_js__.__esModule && $__getter_46_js__ || {default: $__getter_46_js__}).defineGetter;
-var singleOwnershipObject = ($__owner_46_js__ = require("./owner.js"), $__owner_46_js__ && $__owner_46_js__.__esModule && $__owner_46_js__ || {default: $__owner_46_js__}).singleOwnershipObject;
-var $__4 = ($__assert_46_js__ = require("./assert.js"), $__assert_46_js__ && $__assert_46_js__.__esModule && $__assert_46_js__ || {default: $__assert_46_js__}),
+var defineGetter = ($__getter__ = require("./getter"), $__getter__ && $__getter__.__esModule && $__getter__ || {default: $__getter__}).defineGetter;
+var singleOwnershipObject = ($__owner__ = require("./owner"), $__owner__ && $__owner__.__esModule && $__owner__ || {default: $__owner__}).singleOwnershipObject;
+var $__4 = ($__assert__ = require("./assert"), $__assert__ && $__assert__.__esModule && $__assert__ || {default: $__assert__}),
     assertUndefined = $__4.assertUndefined,
     assertInstanceOf = $__4.assertInstanceOf,
     assertArrayInstanceOf = $__4.assertArrayInstanceOf,

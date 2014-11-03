@@ -5,8 +5,8 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__copy_46_js__;
-var copy = ($__copy_46_js__ = require("./copy.js"), $__copy_46_js__ && $__copy_46_js__.__esModule && $__copy_46_js__ || {default: $__copy_46_js__}).copy;
+var $__copy__;
+var copy = ($__copy__ = require("./copy"), $__copy__ && $__copy__.__esModule && $__copy__ || {default: $__copy__}).copy;
 var noCopy = (function(object) {
   return object;
 });

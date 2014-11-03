@@ -1,10 +1,11 @@
 import 'traceur'
-import { copy, noCopy } from '../lib/copy.js'
+import { copy, noCopy } from '../lib/copy'
 
-var should = require('should')
+import chai from 'chai'
+var should = chai.should()
 
 describe('exclude copy test', () => {
-  it('should not copy excluded fieldds', () => {
+  it('should not copy excluded fields', () => {
     var obj = {
       foo: 'foo value',
       bar: 'bar value'
@@ -15,7 +16,7 @@ describe('exclude copy test', () => {
     })
 
     should.equal(copied.foo, 'foo value')
-    should.not.exists(copied.bar)
+    should.not.exist(copied.bar)
   })
 })
 
@@ -79,7 +80,7 @@ describe('null proto test', () => {
     var copied = copy(obj)
     var copyProto = Object.getPrototypeOf(copied)
 
-    should.notEqual(originalProto, copyProto)
+    should.not.equal(originalProto, copyProto)
     should.equal(copyProto, null)
     should.not.exist(copied.toString)
   })

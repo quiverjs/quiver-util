@@ -6,25 +6,32 @@
   },
   "name": "quiver-object",
   "desription": "Utility library for common object operations",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "homepage": "https://github.com/quiverjs/object",
   "repository": {
     "url": "git@github.com:quiverjs/object.git"
   },
   "dependencies": {
-    "traceur": "~0.0.65"
+    "traceur": "0.0.72"
   },
   "devDependencies": {
-    "mocha": "^1.21.4",
-    "should": "^4.0.4"
+    "chai": "^1.9.2",
+    "mocha": "^2.0.1"
   },
   "bugs": {
-    "url": "https://github.com/quiverjs/object/issues",
-    "email": "quiver@quiverjs.org"
+    "url": "https://github.com/quiverjs/object/issues"
   },
   "licenses": {
     "type": "MIT",
     "url": "https://raw.github.com/quiverjs/license/master/LICENSE"
   },
-  "main": "./index.js"
+  "main": "./index.js",
+  "scripts": {
+    "test": "mocha es5/test",
+    "pretest": "npm run build",
+    "prepublish": "npm run build",
+    "build": "npm run build-lib && npm run build-test",
+    "build-lib": "traceur --dir lib es5/lib --modules commonjs",
+    "build-test": "traceur --dir test es5/test --modules commonjs"
+  }
 }
