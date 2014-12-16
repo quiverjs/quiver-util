@@ -1,5 +1,5 @@
 import 'traceur'
-import { merge } from '../lib/merge.js'
+import { merge } from '../lib/merge'
 
 import chai from 'chai'
 var should = chai.should()

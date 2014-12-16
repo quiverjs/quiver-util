@@ -6,20 +6,20 @@
   },
   "name": "quiver-object",
   "desription": "Utility library for common object operations",
-  "version": "1.2.0",
-  "homepage": "https://github.com/quiverjs/object",
+  "version": "1.2.1",
+  "homepage": "https://github.com/quiverjs/quiver-object",
   "repository": {
     "url": "git@github.com:quiverjs/object.git"
   },
   "dependencies": {
-    "traceur": "0.0.72"
+    "traceur": "0.0.79"
   },
   "devDependencies": {
-    "chai": "^1.9.2",
+    "chai": "^1.10.0",
     "mocha": "^2.0.1"
   },
   "bugs": {
-    "url": "https://github.com/quiverjs/object/issues"
+    "url": "https://github.com/quiverjs/quiver-object/issues"
   },
   "licenses": {
     "type": "MIT",
