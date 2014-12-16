@@ -9,7 +9,7 @@
   "version": "1.2.1",
   "homepage": "https://github.com/quiverjs/quiver-object",
   "repository": {
-    "url": "git@github.com:quiverjs/object.git"
+    "url": "git@github.com:quiverjs/quiver-object.git"
   },
   "dependencies": {
     "traceur": "0.0.79"
