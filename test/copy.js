@@ -20,6 +20,21 @@ describe('exclude copy test', () => {
   })
 })
 
+describe('copy symbol test', () => {
+  it('should copy symbol fields', () => {
+    var foo = Symbol('foo')
+    var obj = {
+      [foo]: 'foo value',
+      bar: 'bar value'
+    }
+
+    var copied = copy(obj)
+    
+    should.equal(copied[foo], 'foo value')
+    should.equal(copied.bar, 'bar value')
+  })
+})
+
 describe('no copy test', () => {
   it('should copy', () => {
     var obj = { foo: 'foo' }

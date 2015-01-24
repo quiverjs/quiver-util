@@ -1,31 +1,31 @@
 "use strict";
 Object.defineProperties(exports, {
+  merge: {get: function() {
+      return $__merge__.merge;
+    }},
   copy: {get: function() {
-      return copy;
+      return $__copy__.copy;
     }},
   noCopy: {get: function() {
-      return noCopy;
-    }},
-  merge: {get: function() {
-      return merge;
+      return $__copy__.noCopy;
     }},
   defineGetter: {get: function() {
-      return defineGetter;
+      return $__getter__.defineGetter;
     }},
   assertUndefined: {get: function() {
-      return assertUndefined;
+      return $__assert__.assertUndefined;
     }},
   assertInstanceOf: {get: function() {
-      return assertInstanceOf;
+      return $__assert__.assertInstanceOf;
     }},
   assertArrayInstanceOf: {get: function() {
-      return assertArrayInstanceOf;
+      return $__assert__.assertArrayInstanceOf;
     }},
   assertFunction: {get: function() {
-      return assertFunction;
+      return $__assert__.assertFunction;
     }},
   assertString: {get: function() {
-      return assertString;
+      return $__assert__.assertString;
     }},
   __esModule: {value: true}
 });
@@ -33,15 +33,7 @@ var $__merge__,
     $__copy__,
     $__getter__,
     $__assert__;
-var merge = ($__merge__ = require("./merge"), $__merge__ && $__merge__.__esModule && $__merge__ || {default: $__merge__}).merge;
-var $__1 = ($__copy__ = require("./copy"), $__copy__ && $__copy__.__esModule && $__copy__ || {default: $__copy__}),
-    copy = $__1.copy,
-    noCopy = $__1.noCopy;
-var defineGetter = ($__getter__ = require("./getter"), $__getter__ && $__getter__.__esModule && $__getter__ || {default: $__getter__}).defineGetter;
-var $__3 = ($__assert__ = require("./assert"), $__assert__ && $__assert__.__esModule && $__assert__ || {default: $__assert__}),
-    assertUndefined = $__3.assertUndefined,
-    assertInstanceOf = $__3.assertInstanceOf,
-    assertArrayInstanceOf = $__3.assertArrayInstanceOf,
-    assertFunction = $__3.assertFunction,
-    assertString = $__3.assertString;
-;
+var $__merge__ = ($__merge__ = require("./merge"), $__merge__ && $__merge__.__esModule && $__merge__ || {default: $__merge__});
+var $__copy__ = ($__copy__ = require("./copy"), $__copy__ && $__copy__.__esModule && $__copy__ || {default: $__copy__});
+var $__getter__ = ($__getter__ = require("./getter"), $__getter__ && $__getter__.__esModule && $__getter__ || {default: $__getter__});
+var $__assert__ = ($__assert__ = require("./assert"), $__assert__ && $__assert__.__esModule && $__assert__ || {default: $__assert__});

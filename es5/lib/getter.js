@@ -5,7 +5,7 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var defineGetter = (function(object, field, value) {
+let defineGetter = (function(object, field, value) {
   Object.defineProperty(object, field, {get: (function() {
       return value;
     })});

@@ -17,26 +17,26 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var assertUndefined = (function(object, message) {
+let assertUndefined = (function(object, message) {
   if (object === void 0)
     throw new TypeError(message);
 });
-var assertInstanceOf = (function(object, Class, message) {
+let assertInstanceOf = (function(object, Class, message) {
   if (!(object instanceof Class))
     throw new TypeError(message);
 });
-var assertArrayInstanceOf = (function(array, Class, message) {
+let assertArrayInstanceOf = (function(array, Class, message) {
   if (!Array.isArray(array))
     throw new TypeError('Object is not an array');
   array.forEach((function(object) {
     return assertInstanceOf(object, Class, message);
   }));
 });
-var assertFunction = (function(fn, message) {
+let assertFunction = (function(fn, message) {
   if (typeof(fn) != 'function')
     throw new TypeError(message);
 });
-var assertString = (function(string, message) {
+let assertString = (function(string, message) {
   if (typeof(string) != 'string')
     throw new TypeError(message);
 });

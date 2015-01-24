@@ -1,8 +1,8 @@
 "use strict";
-var $__traceur_64_0_46_0_46_7__,
+var $__traceur_64_0_46_0_46_8__,
     $___46__46__47_lib_47_merge__,
     $__chai__;
-($__traceur_64_0_46_0_46_7__ = require("traceur"), $__traceur_64_0_46_0_46_7__ && $__traceur_64_0_46_0_46_7__.__esModule && $__traceur_64_0_46_0_46_7__ || {default: $__traceur_64_0_46_0_46_7__});
+($__traceur_64_0_46_0_46_8__ = require("traceur"), $__traceur_64_0_46_0_46_8__ && $__traceur_64_0_46_0_46_8__.__esModule && $__traceur_64_0_46_0_46_8__ || {default: $__traceur_64_0_46_0_46_8__});
 var merge = ($___46__46__47_lib_47_merge__ = require("../lib/merge"), $___46__46__47_lib_47_merge__ && $___46__46__47_lib_47_merge__.__esModule && $___46__46__47_lib_47_merge__ || {default: $___46__46__47_lib_47_merge__}).merge;
 var chai = ($__chai__ = require("chai"), $__chai__ && $__chai__.__esModule && $__chai__ || {default: $__chai__}).default;
 var should = chai.should();

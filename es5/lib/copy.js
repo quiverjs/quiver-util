@@ -8,17 +8,17 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var defaultProto = Object.getPrototypeOf({});
-var noCopyKey = Symbol('noCopy');
-var shouldNotCopy = (function(object) {
+let defaultProto = Object.getPrototypeOf({});
+let noCopyKey = Symbol('noCopy');
+let shouldNotCopy = (function(object) {
   return object[noCopyKey] == true;
 });
-var copy = (function(object) {
-  var $__1;
+let copy = (function(object) {
+  var $__3;
   var options = arguments[1] !== (void 0) ? arguments[1] : {};
-  var $__0 = options,
-      forceCopy = ($__1 = $__0.forceCopy) === void 0 ? false : $__1,
-      excludeFields = $__0.excludeFields;
+  let $__2 = options,
+      forceCopy = ($__3 = $__2.forceCopy) === void 0 ? false : $__3,
+      excludeFields = $__2.excludeFields;
   if ((object == null) || (typeof(object) != 'object')) {
     return object;
   }
@@ -28,7 +28,7 @@ var copy = (function(object) {
   if (Array.isArray(object)) {
     return copyArray(object);
   }
-  var proto = Object.getPrototypeOf(object);
+  let proto = Object.getPrototypeOf(object);
   if (proto !== defaultProto && proto != null) {
     return object;
   }
@@ -38,32 +38,38 @@ var copy = (function(object) {
     return copyPlainObject(object);
   }
 });
-var copyPlainObject = (function(object) {
-  var newObject = Object.create(null);
-  for (var key in object) {
-    var value = object[key];
-    newObject[key] = copy(value);
+let copyPlainObject = (function(object) {
+  let newObject = Object.create(null);
+  for (let key in object) {
+    newObject[key] = copy(object[key]);
+  }
+  for (var $__0 = Object.getOwnPropertySymbols(object)[$traceurRuntime.toProperty(Symbol.iterator)](),
+      $__1; !($__1 = $__0.next()).done; ) {
+    let symbol = $__1.value;
+    {
+      newObject[symbol] = copy(object[symbol]);
+    }
   }
   return newObject;
 });
-var copyPlainObjectWithExcludes = (function(object, excludeFields) {
-  var newObject = Object.create(null);
-  for (var key in object) {
+let copyPlainObjectWithExcludes = (function(object, excludeFields) {
+  let newObject = Object.create(null);
+  for (let key in object) {
     if (excludeFields.indexOf(key) > -1)
       continue;
-    var value = object[key];
+    let value = object[key];
     newObject[key] = copy(value);
   }
   return newObject;
 });
-var copyArray = (function(array) {
-  var newArray = [];
+let copyArray = (function(array) {
+  let newArray = [];
   array.forEach(function(value) {
     newArray.push(copy(value));
   });
   return newArray;
 });
-var noCopy = (function(obj) {
+let noCopy = (function(obj) {
   if (!obj)
     return obj;
   Object.defineProperty(obj, noCopyKey, {

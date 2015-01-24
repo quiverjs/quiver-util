@@ -1,8 +1,8 @@
 "use strict";
-var $__traceur_64_0_46_0_46_7__,
+var $__traceur_64_0_46_0_46_8__,
     $___46__46__47_lib_47_copy__,
     $__chai__;
-($__traceur_64_0_46_0_46_7__ = require("traceur"), $__traceur_64_0_46_0_46_7__ && $__traceur_64_0_46_0_46_7__.__esModule && $__traceur_64_0_46_0_46_7__ || {default: $__traceur_64_0_46_0_46_7__});
+($__traceur_64_0_46_0_46_8__ = require("traceur"), $__traceur_64_0_46_0_46_8__ && $__traceur_64_0_46_0_46_8__.__esModule && $__traceur_64_0_46_0_46_8__ || {default: $__traceur_64_0_46_0_46_8__});
 var $__0 = ($___46__46__47_lib_47_copy__ = require("../lib/copy"), $___46__46__47_lib_47_copy__ && $___46__46__47_lib_47_copy__.__esModule && $___46__46__47_lib_47_copy__ || {default: $___46__46__47_lib_47_copy__}),
     copy = $__0.copy,
     noCopy = $__0.noCopy;
@@ -17,6 +17,26 @@ describe('exclude copy test', (function() {
     var copied = copy(obj, {excludeFields: ['bar']});
     should.equal(copied.foo, 'foo value');
     should.not.exist(copied.bar);
+  }));
+}));
+describe('copy symbol test', (function() {
+  it('should copy symbol fields', (function() {
+    var $__2;
+    var foo = Symbol('foo');
+    var obj = ($__2 = {}, Object.defineProperty($__2, foo, {
+      value: 'foo value',
+      configurable: true,
+      enumerable: true,
+      writable: true
+    }), Object.defineProperty($__2, "bar", {
+      value: 'bar value',
+      configurable: true,
+      enumerable: true,
+      writable: true
+    }), $__2);
+    var copied = copy(obj);
+    should.equal(copied[foo], 'foo value');
+    should.equal(copied.bar, 'bar value');
   }));
 }));
 describe('no copy test', (function() {
