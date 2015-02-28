@@ -2,4 +2,4 @@
 
 var traceur = require('traceur')
 
-module.exports = require('./es5/lib/object.js')
+module.exports = require('./out/lib/object.js')
