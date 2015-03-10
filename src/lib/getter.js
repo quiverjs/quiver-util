@@ -1,4 +1,4 @@
-export let defineGetter = (object, field, value) => {
+export const defineGetter = (object, field, value) => {
   Object.defineProperty(object, field, {
     get: () => value
   })

@@ -1,17 +1,16 @@
-import 'traceur'
 import { copy, noCopy } from '../lib/copy'
 
 import chai from 'chai'
-var should = chai.should()
+const should = chai.should()
 
 describe('exclude copy test', () => {
   it('should not copy excluded fields', () => {
-    var obj = {
+    const obj = {
       foo: 'foo value',
       bar: 'bar value'
     }
 
-    var copied = copy(obj, {
+    const copied = copy(obj, {
       excludeFields: ['bar']
     })
 
@@ -22,13 +21,13 @@ describe('exclude copy test', () => {
 
 describe('copy symbol test', () => {
   it('should copy symbol fields', () => {
-    var foo = Symbol('foo')
-    var obj = {
+    const foo = Symbol('foo')
+    const obj = {
       [foo]: 'foo value',
       bar: 'bar value'
     }
 
-    var copied = copy(obj)
+    const copied = copy(obj)
     
     should.equal(copied[foo], 'foo value')
     should.equal(copied.bar, 'bar value')
@@ -37,29 +36,29 @@ describe('copy symbol test', () => {
 
 describe('no copy test', () => {
   it('should copy', () => {
-    var obj = { foo: 'foo' }
+    const obj = { foo: 'foo' }
 
-    var copied = copy(obj)
+    const copied = copy(obj)
     copied.foo = 'bar'
 
     should.equal(obj.foo, 'foo')
   })
 
   it('should not copy', () => {
-    var obj = { foo: 'foo' }
+    const obj = { foo: 'foo' }
     noCopy(obj)
 
-    var copied = copy(obj)
+    const copied = copy(obj)
     copied.foo = 'bar'
 
     should.equal(obj.foo, 'bar')
   })
 
   it('force copy should copy', () => {
-    var obj = { foo: 'foo' }
+    const obj = { foo: 'foo' }
     noCopy(obj)
 
-    var copied = copy(obj, { forceCopy: true })
+    const copied = copy(obj, { forceCopy: true })
     copied.foo = 'bar'
 
     should.equal(obj.foo, 'foo')
@@ -73,27 +72,27 @@ describe('no copy test', () => {
 
 describe('null proto test', () => {
   it('should copy null proto', () => {
-    var obj = Object.create(null)
+    const obj = Object.create(null)
     obj.foo = 'foo'
 
-    var copied = copy(obj)
+    const copied = copy(obj)
     copied.foo = 'bar'
 
     should.equal(obj.foo, 'foo')
   })
 
   it('copied object should be null proto', () => {
-    var obj = {
+    const obj = {
       foo: 'foo'
     }
-    var originalProto = Object.getPrototypeOf(obj)
-    var defaultProto = Object.getPrototypeOf({ })
+    const originalProto = Object.getPrototypeOf(obj)
+    const defaultProto = Object.getPrototypeOf({ })
 
     should.equal(originalProto, defaultProto)
     should.exist(obj.toString)
 
-    var copied = copy(obj)
-    var copyProto = Object.getPrototypeOf(copied)
+    const copied = copy(obj)
+    const copyProto = Object.getPrototypeOf(copied)
 
     should.not.equal(originalProto, copyProto)
     should.equal(copyProto, null)
@@ -102,10 +101,10 @@ describe('null proto test', () => {
 })
 
 describe('copy object test', function() {
-  var testFunctionValue = () => { }
-  var testComplexValue = new Error()
+  const testFunctionValue = () => { }
+  const testComplexValue = new Error()
 
-  var originalObject = {
+  const originalObject = {
     booleanValue: true,
     numberValue: 42,
     stringValue: 'foo',
@@ -122,7 +121,7 @@ describe('copy object test', function() {
     }
   }
 
-  var testOriginalValue = object => {
+  const testOriginalValue = object => {
     object.booleanValue.should.equal(true)
     object.numberValue.should.equal(42)
     object.stringValue.should.equal('foo')
@@ -140,7 +139,7 @@ describe('copy object test', function() {
     should.not.exist(object.objectValue.newInner)
   }
 
-  var testChangedValue = object => {
+  const testChangedValue = object => {
     object.booleanValue.should.equal(false)
     object.numberValue.should.equal(99)
     object.stringValue.should.equal('foobar')
@@ -160,7 +159,7 @@ describe('copy object test', function() {
     object.objectValue.newInner = 'new inner'
   }
 
-  var modifyObject = object => {
+  const modifyObject = object => {
     object.booleanValue = false
     object.numberValue = 99
     object.stringValue += 'bar'
@@ -179,7 +178,7 @@ describe('copy object test', function() {
     testOriginalValue(originalObject)
   })
 
-  var objectCopy = copy(originalObject)
+  const objectCopy = copy(originalObject)
   it('copy should have same values as original', () => {
     testOriginalValue(objectCopy)
   })

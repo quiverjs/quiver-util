@@ -1,14 +1,14 @@
-export let assertUndefined = (object, message) => {
+export const assertUndefined = (object, message) => {
   if(object === void 0)
     throw new TypeError(message)
 }
 
-export let assertInstanceOf = (object, Class, message) => {
+export const assertInstanceOf = (object, Class, message) => {
   if(!(object instanceof Class))
     throw new TypeError(message)
 }
 
-export let assertArrayInstanceOf = (array, Class, message) => {
+export const assertArrayInstanceOf = (array, Class, message) => {
   if(!Array.isArray(array))
     throw new TypeError('Object is not an array')
 
@@ -16,12 +16,12 @@ export let assertArrayInstanceOf = (array, Class, message) => {
     assertInstanceOf(object, Class, message))
 }
 
-export let assertFunction = (fn, message) => {
+export const assertFunction = (fn, message) => {
   if(typeof(fn) != 'function')
     throw new TypeError(message)
 }
 
-export let assertString = (string, message) => {
+export const assertString = (string, message) => {
   if(typeof(string) != 'string')
     throw new TypeError(message)
 }

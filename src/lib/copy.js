@@ -1,12 +1,12 @@
-let defaultProto = Object.getPrototypeOf({})
+const defaultProto = Object.getPrototypeOf({})
 
-let noCopyKey = Symbol('noCopy')
+const noCopyKey = Symbol('noCopy')
 
-let shouldNotCopy = object =>
+const shouldNotCopy = object =>
   object[noCopyKey] == true
 
-export let copy = (object, options={}) => {
-  let { forceCopy=false, excludeFields } = options
+export const copy = (object, options={}) => {
+  const { forceCopy=false, excludeFields } = options
 
   if((object == null) || (typeof(object) != 'object')) {
     return object
@@ -26,12 +26,12 @@ export let copy = (object, options={}) => {
    *
    * The evaluation is the same as
    *  Object.getPrototypeOf(object) === Object.getPrototypeOf({})
-   * Except that we cache the default prototype in the letiable defaultProto.
+   * Except that we cache the default prototype in the constiable defaultProto.
    *
    * This works because all objects created through the hash literal
    * or new Object() all shares the same prototype.
    */
-  let proto = Object.getPrototypeOf(object)
+  const proto = Object.getPrototypeOf(object)
   if(proto !==  defaultProto && proto != null) {
     return object
   }
@@ -43,8 +43,8 @@ export let copy = (object, options={}) => {
   }
 }
 
-let copyPlainObject = object => {
-  let newObject = Object.create(null)
+const copyPlainObject = object => {
+  const newObject = Object.create(null)
 
   for(let key in object) {
     newObject[key] = copy(object[key])
@@ -57,28 +57,28 @@ let copyPlainObject = object => {
   return newObject
 }
 
-let copyPlainObjectWithExcludes = (object, excludeFields) => {
-  let newObject = Object.create(null)
+const copyPlainObjectWithExcludes = (object, excludeFields) => {
+  const newObject = Object.create(null)
 
   for(let key in object) {
     if(excludeFields.indexOf(key) > -1) continue
 
-    let value = object[key]
+    const value = object[key]
     newObject[key] = copy(value)
   }
 
   return newObject
 }
 
-let copyArray = array => {
-  let newArray = []
+const copyArray = array => {
+  const newArray = []
   array.forEach(function(value) {
     newArray.push(copy(value))
   })
   return newArray
 }
 
-export let noCopy = obj => {
+export const noCopy = obj => {
   if(!obj) return obj
   Object.defineProperty(obj, noCopyKey, {
     enumerable: false,

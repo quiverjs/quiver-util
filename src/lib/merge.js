@@ -1,10 +1,10 @@
 import { copy } from './copy'
 
-let noCopy = object => object
+const noCopy = object => object
 
-export let merge = (objects, options={}) => {
-  let copyObject = options.copy ? copy : noCopy
-  let mergedObject = { }
+export const merge = (objects, options={}) => {
+  const copyObject = options.copy ? copy : noCopy
+  const mergedObject = { }
 
   objects.forEach(function(object) {
     for(let key in object) {

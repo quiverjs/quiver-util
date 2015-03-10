@@ -1,22 +1,21 @@
-import 'traceur'
 import { merge } from '../lib/merge'
 
 import chai from 'chai'
-var should = chai.should()
+const should = chai.should()
 
-var object1 = {
+const object1 = {
   'foo': 'foo value',
   'bar': 'bar value'
 }
 
-var object2 = {
+const object2 = {
   'bar': 'override bar',
   'baz': 'baz value'
 }
 
 describe('basic merge test', function() {
   it('should merge correctly', function() {
-    var mergedObject = merge([object1, object2])
+    const mergedObject = merge([object1, object2])
 
     mergedObject.foo.should.equal('foo value')
     mergedObject.bar.should.equal('override bar')
