@@ -1,4 +1,4 @@
-import { merge } from '../lib/merge'
+import { merge } from '../lib/object'
 
 import chai from 'chai'
 const should = chai.should()

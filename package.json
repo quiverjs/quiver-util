@@ -6,7 +6,7 @@
   },
   "name": "quiver-object",
   "desription": "Utility library for common object operations",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "homepage": "https://github.com/quiverjs/quiver-object",
   "repository": {
     "url": "git@github.com:quiverjs/quiver-object.git"
