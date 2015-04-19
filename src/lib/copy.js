@@ -1,3 +1,5 @@
+import { ownKeys } from './keys'
+
 const defaultProto = Object.getPrototypeOf({})
 
 const noCopyKey = Symbol('noCopy')
@@ -46,12 +48,8 @@ export const copy = (object, options={}) => {
 const copyPlainObject = object => {
   const newObject = Object.create(null)
 
-  for(let key in object) {
+  for(let key of ownKeys(object)) {
     newObject[key] = copy(object[key])
-  }
-
-  for(let symbol of Object.getOwnPropertySymbols(object)) {
-    newObject[symbol] = copy(object[symbol])
   }
 
   return newObject

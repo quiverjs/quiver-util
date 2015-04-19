@@ -6,15 +6,15 @@
   },
   "name": "quiver-object",
   "desription": "Utility library for common object operations",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "homepage": "https://github.com/quiverjs/quiver-object",
   "repository": {
     "url": "git@github.com:quiverjs/quiver-object.git"
   },
   "devDependencies": {
-    "babel": "~4.7.12",
-    "chai": "^1.10.0",
-    "mocha": "^2.0.1"
+    "chai": "^2.2.0",
+    "mocha": "^2.0.1",
+    "babel": "^5.1.10"
   },
   "bugs": {
     "url": "https://github.com/quiverjs/quiver-object/issues"
@@ -29,6 +29,6 @@
     "prepublish": "make build"
   },
   "engines": {
-    "iojs": "^1.5.1"
+    "iojs": "^1.7.1"
   }
 }
