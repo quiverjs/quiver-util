@@ -1,10 +1,8 @@
+import test from 'tape'
 import { copy, noCopy } from '../lib/object'
 
-import chai from 'chai'
-const should = chai.should()
-
-describe('exclude copy test', () => {
-  it('should not copy excluded fields', () => {
+test('exclude copy test', assert => {
+  assert.test('should not copy excluded fields', assert => {
     const obj = {
       foo: 'foo value',
       bar: 'bar value'
@@ -14,13 +12,17 @@ describe('exclude copy test', () => {
       excludeFields: ['bar']
     })
 
-    should.equal(copied.foo, 'foo value')
-    should.not.exist(copied.bar)
+    assert.equal(copied.foo, 'foo value')
+    assert.notOk(copied.bar)
+
+    assert.end()
   })
+
+  assert.end()
 })
 
-describe('copy symbol test', () => {
-  it('should copy symbol fields', () => {
+test('copy symbol test', assert => {
+  assert.test('should copy symbol fields', assert => {
     const foo = Symbol('foo')
     const obj = {
       [foo]: 'foo value',
@@ -29,78 +31,96 @@ describe('copy symbol test', () => {
 
     const copied = copy(obj)
 
-    should.equal(copied[foo], 'foo value')
-    should.equal(copied.bar, 'bar value')
+    assert.equal(copied[foo], 'foo value')
+    assert.equal(copied.bar, 'bar value')
+
+    assert.end()
   })
 })
 
-describe('no copy test', () => {
-  it('should copy', () => {
+test('no copy test', assert => {
+  assert.test('should copy', assert => {
     const obj = { foo: 'foo' }
 
     const copied = copy(obj)
     copied.foo = 'bar'
 
-    should.equal(obj.foo, 'foo')
+    assert.equal(obj.foo, 'foo')
+
+    assert.end()
   })
 
-  it('should not copy', () => {
+  assert.test('should not copy', assert => {
     const obj = { foo: 'foo' }
     noCopy(obj)
 
     const copied = copy(obj)
     copied.foo = 'bar'
 
-    should.equal(obj.foo, 'bar')
+    assert.equal(obj.foo, 'bar')
+
+    assert.end()
   })
 
-  it('force copy should copy', () => {
+  assert.test('force copy should copy', assert => {
     const obj = { foo: 'foo' }
     noCopy(obj)
 
     const copied = copy(obj, { forceCopy: true })
     copied.foo = 'bar'
 
-    should.equal(obj.foo, 'foo')
+    assert.equal(obj.foo, 'foo')
+
+    assert.end()
   })
 
-  it('no copy null should make no error', () => {
+  assert.test('no copy null should make no error', assert => {
     noCopy(null)
+
+    assert.end()
   })
+
+  assert.end()
 })
 
 
-describe('null proto test', () => {
-  it('should copy null proto', () => {
+test('null proto test', assert => {
+  assert.test('should copy null proto', assert => {
     const obj = Object.create(null)
     obj.foo = 'foo'
 
     const copied = copy(obj)
     copied.foo = 'bar'
 
-    should.equal(obj.foo, 'foo')
+    assert.equal(obj.foo, 'foo')
+
+    assert.end()
   })
 
-  it('copied object should be null proto', () => {
+  assert.test('copied object should be null proto', assert => {
     const obj = {
       foo: 'foo'
     }
     const originalProto = Object.getPrototypeOf(obj)
     const defaultProto = Object.getPrototypeOf({ })
 
-    should.equal(originalProto, defaultProto)
-    should.exist(obj.toString)
+    assert.equal(originalProto, defaultProto)
+    assert.ok(obj.toString)
 
     const copied = copy(obj)
     const copyProto = Object.getPrototypeOf(copied)
 
-    should.not.equal(originalProto, copyProto)
-    should.equal(copyProto, null)
-    should.not.exist(copied.toString)
+    assert.notEqual(originalProto, copyProto)
+    assert.equal(copyProto, null)
+    assert.notOk(copied.toString)
+
+    assert.end()
   })
+
+  assert.end()
 })
 
-describe('copy object test', function() {
+test('copy object test', assert => {
   const testFunctionValue = () => { }
   const testComplexValue = new Error()
 
@@ -121,42 +141,42 @@ describe('copy object test', function() {
     }
   }
 
-  const testOriginalValue = object => {
-    object.booleanValue.should.equal(true)
-    object.numberValue.should.equal(42)
-    object.stringValue.should.equal('foo')
-    should.not.exist(object.nullValue)
+  const testOriginalValue = (assert, object) => {
+    assert.equal(object.booleanValue, true)
+    assert.equal(object.numberValue, 42)
+    assert.equal(object.stringValue, 'foo')
+    assert.equal(object.nullValue, null)
 
-    object.functionValue == testFunctionValue
-    object.complexValue == testComplexValue
+    assert.equal(object.functionValue, testFunctionValue)
+    assert.equal(object.complexValue, testComplexValue)
 
-    object.arrayValue[0].should.equal(true)
-    object.arrayValue[1].should.equal(42)
-    object.arrayValue[2].should.equal('foo')
-    should.not.exist(object.arrayValue[3])
+    assert.equal(object.arrayValue[0], true)
+    assert.equal(object.arrayValue[1], 42)
+    assert.equal(object.arrayValue[2], 'foo')
+    assert.notOk(object.arrayValue[3])
 
-    object.objectValue.innerValue.should.equal('bar')
-    should.not.exist(object.objectValue.newInner)
+    assert.equal(object.objectValue.innerValue, 'bar')
+    assert.notOk(object.objectValue.newInner)
   }
 
-  const testChangedValue = object => {
-    object.booleanValue.should.equal(false)
-    object.numberValue.should.equal(99)
-    object.stringValue.should.equal('foobar')
-    object.nullValue.should.equal('not null')
+  const testChangedValue = (assert, object) => {
+    assert.equal(object.booleanValue, false)
+    assert.equal(object.numberValue, 99)
+    assert.equal(object.stringValue, 'foobar')
+    assert.equal(object.nullValue, 'not null')
 
-    testComplexValue.sideEffect.should.equal('has side effect')
+    assert.equal(testComplexValue.sideEffect, 'has side effect')
 
-    object.functionValue == testFunctionValue
-    object.complexValue == testComplexValue
+    assert.equal(object.functionValue, testFunctionValue)
+    assert.equal(object.complexValue, testComplexValue)
 
-    object.arrayValue[0].should.equal(true)
-    object.arrayValue[1].should.equal(42)
-    object.arrayValue[2].should.equal('baz')
-    object.arrayValue[3].should.equal('new element')
+    assert.equal(object.arrayValue[0], true)
+    assert.equal(object.arrayValue[1], 42)
+    assert.equal(object.arrayValue[2], 'baz')
+    assert.equal(object.arrayValue[3], 'new element')
 
-    should.not.exist(object.objectValue.innerValue)
-    object.objectValue.newInner = 'new inner'
+    assert.notOk(object.objectValue.innerValue)
+    assert.equal(object.objectValue.newInner, 'new inner')
   }
 
   const modifyObject = object => {
@@ -174,26 +194,26 @@ describe('copy object test', function() {
     object.objectValue.newInner = 'new inner'
   }
 
-  it('sanity test with original', () => {
-    testOriginalValue(originalObject)
+  assert.test('sanity test with original', assert => {
+    testOriginalValue(assert, originalObject)
+
+    assert.end()
   })
 
   const objectCopy = copy(originalObject)
-  it('copy should have same values as original', () => {
-    testOriginalValue(objectCopy)
+  assert.test('copy should have same values as original', assert => {
+    testOriginalValue(assert, objectCopy)
+
+    assert.end()
   })
 
-  it('modification of copy should not affect original', () => {
+  assert.test('modification of copy should not affect original', assert => {
     modifyObject(objectCopy)
-    testChangedValue(objectCopy)
-    testOriginalValue(originalObject)
+    testChangedValue(assert, objectCopy)
+    testOriginalValue(assert, originalObject)
 
-    ;(() => {
-      testOriginalValue(objectCopy)
-    }).should.throw()
-
-    ;(() => {
-      testChangedValue(originalObject)
-    }).should.throw()
+    assert.end()
   })
+
+  assert.end()
 })

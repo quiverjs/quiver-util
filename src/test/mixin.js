@@ -1,11 +1,8 @@
+import test from 'tape'
 import { mixin } from '../lib/object'
 
-import chai from 'chai'
-const should = chai.should()
-const expect = chai.expect
-
-describe('mixin test', () => {
-  it('should mixin getter', () => {
+test('mixin test', assert => {
+  assert.test('should mixin getter', assert => {
     const obj = {
       get foo() {
         return 'foo'
@@ -19,14 +16,16 @@ describe('mixin test', () => {
     }
 
     mixin(obj, bar)
-    expect(obj.bar).to.equal('bar')
+    assert.equal(obj.bar, 'bar')
 
-    expect(() => {
+    assert.throws(() => {
       obj.bar = 'baz'
-    }).to.throw()
+    })
+
+    assert.end()
   })
 
-  it('should override original getter', () => {
+  assert.test('should override original getter', assert => {
     const obj = {
       get foo() {
         return 'foo'
@@ -38,10 +37,14 @@ describe('mixin test', () => {
     }
 
     mixin(obj, other)
-    expect(obj.foo).to.equal('bar')
+    assert.equal(obj.foo, 'bar')
 
-    expect(() => {
+    assert.doesNotThrow(() => {
       obj.foo = 'baz'
-    }).to.not.throw()
+    })
+
+    assert.end()
   })
+
+  assert.end()
 })
