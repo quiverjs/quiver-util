@@ -1,2 +1,2 @@
 'use strict'
-module.exports = './out/lib/assert'
+module.exports = require('./out/lib/assert')

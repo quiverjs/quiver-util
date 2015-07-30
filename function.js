@@ -1,2 +1,2 @@
 'use strict'
-module.exports = './out/lib/function'
+module.exports = require('./out/lib/function')
