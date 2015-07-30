@@ -4,20 +4,20 @@
     "email": "soares.chen@gmail.com",
     "url": "http://soareschen.com"
   },
-  "name": "quiver-object",
-  "desription": "Utility library for common object operations",
-  "version": "1.4.3",
-  "homepage": "https://github.com/quiverjs/quiver-object",
+  "name": "quiver-util",
+  "desription": "Utility toolbelt for building Quiver",
+  "version": "1.0.0",
+  "homepage": "https://github.com/quiverjs/quiver-util",
   "repository": {
-    "url": "git@github.com:quiverjs/quiver-object.git"
+    "url": "git@github.com:quiverjs/quiver-util.git"
   },
   "devDependencies": {
-    "chai": "^2.2.0",
-    "mocha": "^2.0.1",
-    "babel": "^5.1.10"
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5",
+    "babel": "^5.8.19"
   },
   "bugs": {
-    "url": "https://github.com/quiverjs/quiver-object/issues"
+    "url": "https://github.com/quiverjs/quiver-util/issues"
   },
   "licenses": {
     "type": "MIT",
@@ -29,6 +29,6 @@
     "prepublish": "make build"
   },
   "engines": {
-    "iojs": "^1.7.1"
+    "iojs": "^2.5.0"
   }
 }

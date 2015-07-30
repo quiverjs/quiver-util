@@ -1,2 +1,1 @@
-'use strict'
-module.exports = require('./out/lib/object.js')
+// Nothing by default. qualify with subpaths

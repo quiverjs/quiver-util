@@ -1,4 +1,4 @@
-import { copy, noCopy } from '../lib/copy'
+import { copy, noCopy } from '../lib/object'
 
 import chai from 'chai'
 const should = chai.should()
@@ -28,7 +28,7 @@ describe('copy symbol test', () => {
     }
 
     const copied = copy(obj)
-    
+
     should.equal(copied[foo], 'foo value')
     should.equal(copied.bar, 'bar value')
   })

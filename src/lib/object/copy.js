@@ -1,11 +1,11 @@
 import { ownKeys } from './keys'
 
+const $noCopy = Symbol('noCopy')
+
 const defaultProto = Object.getPrototypeOf({})
 
-const noCopyKey = Symbol('noCopy')
-
 const shouldNotCopy = object =>
-  object[noCopyKey] == true
+  object[$noCopy] == true
 
 export const copy = (object, options={}) => {
   const { forceCopy=false, excludeFields } = options
@@ -78,7 +78,7 @@ const copyArray = array => {
 
 export const noCopy = obj => {
   if(!obj) return obj
-  Object.defineProperty(obj, noCopyKey, {
+  Object.defineProperty(obj, $noCopy, {
     enumerable: false,
     writable: true,
     value: true
