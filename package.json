@@ -22,7 +22,8 @@
   "main": "./index.js",
   "scripts": {
     "test": "make test",
-    "prepublish": "make build"
+    "prepublish": "make build",
+    "postinstall": "npm install babel && make build"
   },
   "engines": {
     "iojs": "^2.5.0"
