@@ -23,7 +23,7 @@
   "scripts": {
     "test": "make test",
     "prepublish": "make build",
-    "postinstall": "npm install babel && make build"
+    "postinstall": "make postinstall"
   },
   "engines": {
     "iojs": "^2.5.0"
