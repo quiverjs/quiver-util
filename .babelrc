@@ -1,12 +1,12 @@
 {
   "stage": 1,
   "optional": [
-    "es6.properties.computed",
     "es7.functionBind",
     "es7.asyncFunctions",
     "asyncToGenerator"
   ],
   "blacklist": [
+    "es6.properties.computed",
     "es6.blockScoping",
     "es6.constants",
     "es6.forOf",
