@@ -5,6 +5,8 @@ test('quiver error test', assert => {
   const err = error(404, 'Not Found')
   assert.equal(err.code, 404)
   assert.equal(err.message, 'Not Found')
+
+  console.log('Sample error string output:')
   console.log(err)
 
   assert.end()

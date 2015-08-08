@@ -12,16 +12,20 @@ export const assertArrayInstanceOf = (array, Class, message) => {
   if(!Array.isArray(array))
     throw new TypeError('Object is not an array')
 
-  array.forEach(object => 
+  array.forEach(object =>
     assertInstanceOf(object, Class, message))
 }
 
-export const assertFunction = (fn, message) => {
+export const assertFunction = (fn,
+  message='argument must be of type function') =>
+{
   if(typeof(fn) != 'function')
     throw new TypeError(message)
 }
 
-export const assertString = (string, message) => {
+export const assertString = (string,
+  message='argument must be of type string') =>
+{
   if(typeof(string) != 'string')
     throw new TypeError(message)
 }

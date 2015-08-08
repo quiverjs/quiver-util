@@ -1,5 +1,6 @@
 import './copy'
 import './error'
+import './function'
 import './merge'
 import './mixin'
 import './promise'

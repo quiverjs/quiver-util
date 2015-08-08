@@ -6,10 +6,13 @@
   },
   "name": "quiver-util",
   "desription": "Utility toolbelt for building Quiver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/quiverjs/quiver-util",
   "repository": {
     "url": "git@github.com:quiverjs/quiver-util.git"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.8.20"
   },
   "devDependencies": {
     "tape": "^4.0.3",
