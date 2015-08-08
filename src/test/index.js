@@ -1,5 +1,6 @@
 import './copy'
 import './error'
+import './fluent'
 import './function'
 import './merge'
 import './mixin'
