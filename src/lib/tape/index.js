@@ -1,7 +1,7 @@
 export function fulfilled(promise) {
-  promise.then(() => {
-    this.end()
-  }, this.fail)
+  promise.then(
+    () => this.end(),
+    err => this.fail(err.stack))
 }
 
 export function rejected(promise) {
