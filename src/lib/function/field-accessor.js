@@ -1,12 +1,13 @@
 const fieldAccessorFromFields = fields => {
-  if(fields.length == 0)
+  if(fields.length === 0)
     throw new Error('fields length must be > 0')
 
-  const [field, ...restFields] = fields
+  const field = fields[0]
+  const restFields = fields.slice(1)
 
   const accessor = (obj={}) => obj[field]
 
-  if(restFields.length == 0) {
+  if(restFields.length === 0) {
     return accessor
   } else {
     const restAccessor = fieldAccessorFromFields(restFields)

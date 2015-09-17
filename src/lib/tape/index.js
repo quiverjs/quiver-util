@@ -1,14 +1,12 @@
 export function fulfilled(promise) {
-  promise.then(
-    () => this.end(),
-    err => this.fail(err.stack))
+  return promise.catch(
+    err => this.error(err))
 }
 
 export function rejected(promise) {
-  promise.then(this.fail, err => {
-    this.ok(err)
-    this.end()
-  })
+  return promise.then(
+    res => this.fail(res),
+    err => this.ok(err))
 }
 
 export function asyncTest(name, fn) {

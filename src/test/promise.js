@@ -1,52 +1,58 @@
 import test from 'tape'
 
-import { fulfilled, rejected } from '../lib/tape'
+import { asyncTest, fulfilled, rejected } from '../lib/tape'
 
 import {
   async, safePromised, promisify, resolve
 } from '../lib/promise'
 
 test('safe promised test', assert => {
-  assert.test('should return promise', assert => {
+  assert::asyncTest('should return promise', async function(assert) {
     const fn = () => 'foo'
     const wrapped = safePromised(fn)
 
-    assert::fulfilled(wrapped()
-      .then(res => {
-        assert.equal(res, 'foo')
-      }))
+    await wrapped().then(res => {
+      assert.equal(res, 'foo')
+    })
+
+    assert.end()
   })
 
-  assert.test('should catch exception', assert => {
+  assert::asyncTest('should catch exception', async function(assert) {
     const fn = () => { throw new Error('test') }
     const wrapped = safePromised(fn)
 
-    assert::rejected(wrapped())
+    await assert::rejected(wrapped())
+
+    assert.end()
   })
 
   assert.end()
 })
 
 test('promisify test', assert => {
-  assert.test('should convertible to promise', assert => {
+  assert::asyncTest('should convertible to promise', async function(assert) {
     const asyncTimesTwo = (num, callback) =>
       process.nextTick(() => callback(null, num*2))
 
     const promisedTimesTwo = promisify(asyncTimesTwo)
 
-    assert::fulfilled(promisedTimesTwo(3)
-      .then(res => {
-        assert.equal(res, 6)
-      }))
+    await promisedTimesTwo(3).then(res => {
+      assert.equal(res, 6)
+    })
+
+    assert.end()
   })
 
-  assert.test('should convert callback error to rejected promise', assert => {
+  assert::asyncTest('should convert callback error to rejected promise', async function(assert) {
     const asyncError = (callback) =>
       process.nextTick(() => callback(new Error()))
 
     const promisedError = promisify(asyncError)
 
-    assert::rejected(promisedError())
+    await assert::rejected(promisedError())
+
+    assert.end()
   })
 
   assert.end()
@@ -61,23 +67,25 @@ test('async generator test', assert => {
   const plusThree = (num) =>
     nextTick().then(() => num+3)
 
-  assert.test('nested yield', assert => {
+  assert::asyncTest('nested yield', async function(assert) {
     const calc = async(function*(num) {
       return yield timesTwo(yield plusThree(num))
     })
 
-    assert::fulfilled(calc(1)
-      .then(res => {
-        assert.equal(res, 8)
-      }))
+    const res = await calc(1)
+    assert.equal(res, 8)
+
+    assert.end()
   })
 
-  assert.test('exception test', assert => {
+  assert::asyncTest('exception test', async function(assert) {
     const fn = async(function*() {
       throw new Error('fail')
     })
 
-    return assert::rejected(fn())
+    await assert::rejected(fn())
+
+    assert.end()
   })
 
   assert.end()
