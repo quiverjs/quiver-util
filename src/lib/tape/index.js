@@ -1,6 +1,9 @@
 export function fulfilled(promise) {
   return promise.catch(
-    err => this.error(err))
+    err => {
+      this.error(err)
+      throw err
+    })
 }
 
 export function rejected(promise) {
