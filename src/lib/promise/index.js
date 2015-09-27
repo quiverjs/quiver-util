@@ -3,9 +3,9 @@ export {
   timeout, safePromised
 } from './basic'
 
-export { asyncMap } from './async-map'
-
 export { async, runAsync } from './async'
+
+export { awaitIterable, asyncMap } from './iterator'
 
 export {
   promisify, promisifyMethod, promisifyMethods
