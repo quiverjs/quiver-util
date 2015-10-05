@@ -16,6 +16,14 @@ export const safePromised = fn =>
     createPromise(resolve =>
       resolve(fn(...args)))
 
+export const awaitEvent = (event, name) =>
+  new Promise(resolve =>
+    event.once(name, resolve))
+
+export const errorEvent = (event) =>
+  new Promise((_, reject) =>
+    event.once('error', reject))
+
 export const resolveAny = (promises) => {
   if(promises.length === 0) return Promise.resolve()
 

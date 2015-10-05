@@ -1,6 +1,8 @@
 export {
   createPromise, resolve, reject,
-  timeout, safePromised, $finally
+  timeout, safePromised,
+  awaitEvent, errorEvent,
+  resolveAny, $finally
 } from './basic'
 
 export { async, runAsync } from './async'
