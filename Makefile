@@ -4,4 +4,4 @@ build: src
 test: build
 	node out/test
 
-.PHONY: build test install-babel postinstall
+.PHONY: build test
