@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./out/lib/promise')
+module.exports = require('./dist/lib/promise')

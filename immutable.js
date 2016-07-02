@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./out/lib/immutable')
+module.exports = require('./dist/lib/immutable')

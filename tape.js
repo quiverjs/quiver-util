@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./out/lib/tape')
+module.exports = require('./dist/lib/tape')

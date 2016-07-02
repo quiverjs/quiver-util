@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./out/lib/iterator')
+module.exports = require('./dist/lib/iterator')

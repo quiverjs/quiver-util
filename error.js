@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./out/lib/error')
+module.exports = require('./dist/lib/error')

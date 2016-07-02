@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./out/lib/object')
+module.exports = require('./dist/lib/object')
