@@ -31,7 +31,7 @@ class ServerError extends Error {
   }
 
   format() {
-    return `[Error ${this.errorCode}: ${this.message}]\n${this.stack}`
+    return `[Error ${this.code}: ${this.message}]\n${this.stack}`
   }
 
   inspect() {
