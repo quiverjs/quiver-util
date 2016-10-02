@@ -6,7 +6,7 @@
   },
   "name": "quiver-util",
   "desription": "Utility toolbelt for building Quiver",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "homepage": "https://github.com/quiverjs/quiver-util",
   "repository": {
     "url": "git@github.com:quiverjs/quiver-util.git"
@@ -15,9 +15,9 @@
     "immutable": "^3.8.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "quiver-babel": "^1.0.2",
-    "tape": "^4.6.0"
+    "babel-cli": "^6.16.0",
+    "quiver-babel": "^1.0.3",
+    "tape": "^4.6.2"
   },
   "bugs": {
     "url": "https://github.com/quiverjs/quiver-util/issues"
